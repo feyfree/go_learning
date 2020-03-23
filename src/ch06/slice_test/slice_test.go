@@ -22,7 +22,7 @@ func TestSlice(t *testing.T) {
 }
 
 func TestSliceGrowing(t *testing.T) {
-	s := []int{}
+	var s []int
 	for i := 0; i < 10; i++ {
 		s = append(s, i)
 		t.Log(len(s), cap(s))
@@ -43,7 +43,7 @@ func TestSliceShareMemory(t *testing.T) {
 func TestSliceCompare(t *testing.T) {
 	//a := []int{1, 2, 3, 4}
 	//b := []int{1, 2, 3, 4}
-	// slice 不可比较
+	//slice 不可比较
 	//if a == b {
 	//	t.Log("Equal")
 	//}
@@ -52,6 +52,7 @@ func TestSliceCompare(t *testing.T) {
 	if a == b {
 		t.Log("Equal")
 	}
+	t.Log(cap(a), len(a))
 }
 
 func TestSliceAndArray(t *testing.T) {
