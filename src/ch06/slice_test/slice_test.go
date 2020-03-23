@@ -1,6 +1,8 @@
 package slice_test
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestSlice(t *testing.T) {
 	var s0 []int
@@ -39,15 +41,27 @@ func TestSliceShareMemory(t *testing.T) {
 }
 
 func TestSliceCompare(t *testing.T) {
-	a := []int{1, 2, 3, 4}
-	b := []int{1, 2, 3, 4}
+	//a := []int{1, 2, 3, 4}
+	//b := []int{1, 2, 3, 4}
 	// slice 不可比较
-	if a == b {
-		t.Log("Equal")
-	}
-	//a := [...]int{1, 2, 3, 4}
-	//b := [...]int{1, 2, 3, 4}
 	//if a == b {
 	//	t.Log("Equal")
 	//}
+	a := [...]int{1, 2, 3, 4}
+	b := [...]int{1, 2, 3, 4}
+	if a == b {
+		t.Log("Equal")
+	}
+}
+
+func TestSliceAndArray(t *testing.T) {
+	arrayA := [2]int{100, 200}
+	var arrayB [2]int
+	arrayB = arrayA
+	// 数组是值复制
+	t.Log(&arrayB == &arrayA)
+	// 不同类型的指针不能比较
+	//sliceA := arrayA[:]
+	//slice_addr := &sliceA
+	//t.Log(slice_addr == &arrayA)
 }
