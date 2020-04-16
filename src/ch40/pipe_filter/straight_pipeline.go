@@ -10,7 +10,7 @@ func NewStraightPipeline(name string, filters ...Filter) *StraightPipeline {
 	}
 }
 
-// StraightPipeline is composed of the filters, and the filters are piled as a straigt line.
+// StraightPipeline is composed of the filters, and the filters are piled as a straight line.
 type StraightPipeline struct {
 	Name    string
 	Filters *[]Filter
