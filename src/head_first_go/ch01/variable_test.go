@@ -23,6 +23,7 @@ func TestVariableAssignment(t *testing.T) {
 func TestConversion(t *testing.T) {
 	var length float64 = 1.2
 	var width int = 2
+
 	// type mismatch
 	//fmt.Println("Area is", length*width)
 	//fmt.Println("length > width ?", length > width)
