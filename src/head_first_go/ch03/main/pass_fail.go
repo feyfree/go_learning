@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"head_first_go/ch03/keyboard"
+	"github.com/headfirstgo/keyboard"
 )
 
 func main() {
