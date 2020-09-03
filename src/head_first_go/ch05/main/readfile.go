@@ -8,7 +8,9 @@ import (
 )
 
 func main() {
-	file, err := os.Open("data.txt")
+	// "./"表示是src 目录下面
+	_, _ = os.Create("./hi.txt")
+	file, err := os.Open("src\\head_first_go\\ch05\\main\\data.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
