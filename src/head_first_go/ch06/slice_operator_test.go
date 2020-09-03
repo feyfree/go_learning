@@ -34,3 +34,14 @@ func TestSliceAppend(t *testing.T) {
 	s4[0] = "XX"
 	fmt.Println(s1, s2, s3, s4)
 }
+
+func TestSliceZeroValues(t *testing.T) {
+	floatSlice := make([]float64, 10)
+	boolSlice := make([]bool, 10)
+	fmt.Println(floatSlice[9], boolSlice[9])
+
+	var intSlice []int
+	var stringSlice []string
+	fmt.Printf("intSlice :%#v, stringSlice :%#v\n", intSlice, stringSlice)
+	fmt.Print(len(intSlice))
+}
