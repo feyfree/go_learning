@@ -45,3 +45,12 @@ func TestSliceZeroValues(t *testing.T) {
 	fmt.Printf("intSlice :%#v, stringSlice :%#v\n", intSlice, stringSlice)
 	fmt.Print(len(intSlice))
 }
+
+func severalInt(numbers ...int) {
+	fmt.Println(numbers)
+}
+
+func TestSeveralInt(t *testing.T) {
+	severalInt(1)
+	severalInt(1, 2)
+}
