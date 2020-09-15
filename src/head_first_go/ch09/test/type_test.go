@@ -24,6 +24,10 @@ func (n *Number) Double() {
 	*n *= 2
 }
 
+//func (n Number) Double() {
+//	n *= 2
+//}
+
 func TestPointer(t *testing.T) {
 	number := Number(4)
 	number.Double()
