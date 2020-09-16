@@ -23,7 +23,6 @@ func TestCounterThreadSafe(t *testing.T) {
 	for i := 0; i < 5000; i++ {
 		go func() {
 			defer func() {
-				t.Logf("current counter = %d", counter)
 				mut.Unlock()
 			}()
 			mut.Lock()
@@ -42,7 +41,6 @@ func TestCounterWaitGroup(t *testing.T) {
 		wg.Add(1)
 		go func() {
 			defer func() {
-				t.Logf("current counter = %d", counter)
 				mut.Unlock()
 			}()
 			mut.Lock()
