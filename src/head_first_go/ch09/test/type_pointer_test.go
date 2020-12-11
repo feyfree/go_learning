@@ -28,7 +28,7 @@ func TestPointerMethod(t *testing.T) {
 	pointer.pointerMethod()
 	MyType("Another value").method()
 	// cannot call instead you need to use a variable to store,
-	// go will do the conversion for you
+	// go will do the my_conversion_test for you
 	//MyType("Another value").pointerMethod()
 }
 

@@ -106,7 +106,7 @@ func TestRandomPalindromes(t *testing.T) {
 // Answer for Exercicse 11.1: Modify randomPalindrome to exercise
 // IsPalindrome's handling of punctuation and spaces.
 
-// WARNING: the conversion r -> upper -> lower doesn't preserve
+// WARNING: the my_conversion_test r -> upper -> lower doesn't preserve
 // the value of r in some cases, e.g., µ Μ, ſ S, ı I
 
 // randomPalindrome returns a palindrome whose length and contents
