@@ -57,7 +57,7 @@ func TestBasicAssignment(t *testing.T) {
 	fmt.Printf("parrot4:\t\t %+v, \t\t内存地址：%p\n", parrot4, &parrot4)
 }
 
-func TestMapSliceArray(t *testing.T) {
+func TestMapSlice(t *testing.T) {
 	fmt.Printf("parrot1:\t\t %+v, \t\t内存地址：%p\n", parrot1, &parrot1)
 	//slice
 	s := []Bird{parrot1}
@@ -119,4 +119,38 @@ func TestForRange(t *testing.T) {
 	for i, p := range a {
 		fmt.Printf("parrot%d:\t\t %+v, \t\t内存地址：%p\n", i+2, p, &p)
 	}
+}
+
+func TestChannel(t *testing.T) {
+	ch := make(chan Bird, 3)
+	fmt.Printf("parrot1:\t\t %+v, \t\t内存地址：%p\n", parrot1, &parrot1)
+	ch <- parrot1
+	parrot1.Age = 2
+	ch <- parrot1
+	parrot1.Age = 3
+	ch <- parrot1
+	parrot1.Age = 4
+	p := <-ch
+	fmt.Printf("parrot%d:\t\t %+v, \t\t内存地址：%p\n", 2, p, &p)
+	p = <-ch
+	fmt.Printf("parrot%d:\t\t %+v, \t\t内存地址：%p\n", 3, p, &p)
+	p = <-ch
+	fmt.Printf("parrot%d:\t\t %+v, \t\t内存地址：%p\n", 4, p, &p)
+}
+
+func TestArray(t *testing.T) {
+	a1 := [3]int{1, 2, 3}
+	fmt.Printf("a1:\t\t %+v, \t\t内存地址：%p\n", a1, &a1)
+	a2 := a1
+	a1[0] = 4
+	a1[1] = 5
+	a1[2] = 6
+	fmt.Printf("a2:\t\t %+v, \t\t内存地址：%p\n", a2, &a2)
+}
+
+func TestFunc(t *testing.T) {
+	f1 := func(i int) {}
+	fmt.Printf("f1:  \t\t内存地址：%p\n", &f1)
+	f2 := f1
+	fmt.Printf("f2:  \t\t内存地址：%p\n", &f2)
 }
