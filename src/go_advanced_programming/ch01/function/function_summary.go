@@ -36,7 +36,6 @@ func main() {
 	Sum(a, a, b)
 
 	var c = []interface{}{123, "abc"}
-
 	// 第一个Print调用时传入的参数是a...，等价于直接调用Print(123, "abc")。
 	// 第二个Print调用传入的是未解包的a，等价于直接调用Print([]interface{}{123, "abc"})。
 	Print(c...) // 123 abc
