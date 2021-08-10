@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
 func Add(a, b int) int {
 	var add = func(a, b int) int {
@@ -26,6 +29,21 @@ func Sum(a int, more ...int) int {
 
 func Print(a ...interface{}) {
 	fmt.Println(a...)
+}
+
+type Cache struct {
+	m map[string]string
+	sync.Mutex
+}
+
+// Lookup Cache结构体类型通过嵌入一个匿名的sync.Mutex来继承它的Lock和Unlock方法.
+// 但是在调用p.Lock()和p.Unlock()时, p并不是Lock和Unlock方法的真正接收者,
+// 而是会将它们展开为p.Mutex.Lock()和p.Mutex.Unlock()调用. 这种展开是编译期完成的, 并没有运行时代价.
+func (p *Cache) Lookup(key string) string {
+	p.Lock()
+	defer p.Unlock()
+
+	return p.m[key]
 }
 
 func main() {
