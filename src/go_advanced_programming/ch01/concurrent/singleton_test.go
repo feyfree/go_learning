@@ -27,3 +27,15 @@ func Instance() *singleton {
 	}
 	return instance
 }
+
+var (
+	onceInstance *singleton
+	once         sync.Once
+)
+
+func OnceInstance() *singleton {
+	once.Do(func() {
+		onceInstance = &singleton{}
+	})
+	return onceInstance
+}
