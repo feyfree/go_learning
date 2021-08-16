@@ -27,6 +27,7 @@ func PrimeFilter(in <-chan int, prime int) chan int {
 }
 
 func main() {
+
 	// 自然数序列: 2, 3, 4, ...
 	ch := GenerateNatural()
 	for i := 0; i < 100; i++ {
