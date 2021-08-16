@@ -27,7 +27,8 @@ func PrimeFilter(in <-chan int, prime int) chan int {
 }
 
 func main() {
-	ch := GenerateNatural() // 自然数序列: 2, 3, 4, ...
+	// 自然数序列: 2, 3, 4, ...
+	ch := GenerateNatural()
 	for i := 0; i < 100; i++ {
 		prime := <-ch // 新出现的素数
 		fmt.Printf("%v: %v\n", i+1, prime)
