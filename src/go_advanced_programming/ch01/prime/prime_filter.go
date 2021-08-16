@@ -32,6 +32,7 @@ func main() {
 	for i := 0; i < 100; i++ {
 		prime := <-ch // 新出现的素数
 		fmt.Printf("%v: %v\n", i+1, prime)
-		ch = PrimeFilter(ch, prime) // 基于新素数构造的过滤器
+		// 基于新素数构造的过滤器
+		ch = PrimeFilter(ch, prime)
 	}
 }
